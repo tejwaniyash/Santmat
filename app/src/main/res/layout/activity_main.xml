@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffda99"
+    tools:context=".MainActivity">
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:id="@+id/ad"
+        ads:adUnitId="@string/Banner_u_id"
+        ads:adSize="BANNER"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content">
+    </com.google.android.gms.ads.AdView>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_above="@id/ad"
+        android:layout_height="fill_parent"
+        android:id="@+id/playlist_item_item">
+    </android.support.v7.widget.RecyclerView>
+</RelativeLayout>
