@@ -13,19 +13,27 @@
         android:roundIcon="@drawable/channel_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".SplashActivity"
+            android:theme="@style/SplashTheme"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".VideorecyclerActivity" />
         <activity
             android:name=".player"
             android:screenOrientation="landscape" />
+        <activity android:name=".aboutme"/>
+
     </application>
 
 </manifest>
