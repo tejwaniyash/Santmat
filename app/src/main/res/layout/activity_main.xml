@@ -6,41 +6,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/gradient"
-        tools:context=".MainActivity">
+        android:layout_height="match_parent">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/playlist_item_item"
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:layout_above="@id/adView">
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient"
+            tools:context=".MainActivity">
 
-        </android.support.v7.widget.RecyclerView>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/playlist_item_item"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_above="@id/adView">
 
-        <com.google.android.gms.ads.AdView
-            android:id="@+id/adView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            ads:adSize="BANNER"
-            ads:adUnitId="@string/banner_ad_unit_id">
+            </android.support.v7.widget.RecyclerView>
 
-        </com.google.android.gms.ads.AdView>
-    </RelativeLayout>
-    <android.support.design.widget.NavigationView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/navigation"
-        app:menu="@menu/mainmenu"
-        app:headerLayout="@layout/navheader"
-        app:itemTextColor="@color/colorPrimary"
-        app:itemIconTint="@color/colorPrimary"
-        android:layout_gravity="start">
-    </android.support.design.widget.NavigationView>
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/banner_ad_unit_id">
+
+            </com.google.android.gms.ads.AdView>
+
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/loader"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_gravity="center"/>
+
+    </FrameLayout>
+
+        <android.support.design.widget.NavigationView
+            android:id="@+id/navigation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:headerLayout="@layout/navheader"
+            app:itemIconTint="@color/colorPrimary"
+            app:itemTextColor="@color/colorPrimary"
+            app:menu="@menu/mainmenu"></android.support.design.widget.NavigationView>
+
 </android.support.v4.widget.DrawerLayout>
