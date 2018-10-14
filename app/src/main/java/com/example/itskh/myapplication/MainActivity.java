@@ -14,30 +14,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private static final String playlistUrl = "https://www.googleapis.com/youtube/v3/playlists?part=snippet&channelId=UCEfqzmMwibbzRK879P9kEPw&key=AIzaSyDEYPFMLPlAhKf3Fw8hPtLE4jcZFgGYXCY&maxResults=50";
     private ArrayList<playlistData> Ytdata;
-    private AdView mAdView;
     private ActionBarDrawerToggle toggle;
     private ProgressBar loader;
 
@@ -50,9 +42,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         loader = findViewById(R.id.loader);
 
         //Ad Section
+        /*
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+        */
         //Splash Screen
 
         //Recycler View Section
@@ -61,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         Ytdata = new ArrayList<>();
         loadRecyclerViewData();
+
+
         //Navigation
         DrawerLayout drawerLayout = findViewById(R.id.drawer);
         toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
@@ -101,12 +97,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (item.getItemId() == R.id.home) {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
-            Toast.makeText(getApplicationContext(), "Home", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), "Home", Toast.LENGTH_SHORT).show();
         }
         if (item.getItemId() == R.id.about) {
             Intent intent = new Intent(this, aboutme.class);
             startActivity(intent);
-            Toast.makeText(getApplicationContext(), "about", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), "about", Toast.LENGTH_SHORT).show();
         }
         return false;
     }
@@ -145,4 +141,3 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 }
-

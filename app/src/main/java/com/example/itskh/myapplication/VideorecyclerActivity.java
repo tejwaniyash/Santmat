@@ -13,6 +13,8 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 
@@ -22,8 +24,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 
 
 import org.json.JSONArray;
@@ -35,12 +35,12 @@ import java.util.List;
 
 public class VideorecyclerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private static final String TAG = "VideorecyclerActivity";
-    private AdView mAdView;
     private String Videoidurl;
     private List<Videolist> videos;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private ActionBarDrawerToggle toggle;
+    private ProgressBar loader_video;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,10 +49,14 @@ public class VideorecyclerActivity extends AppCompatActivity implements Navigati
         Log.d(TAG, "Video List:");
 
 
+        loader_video=findViewById(R.id.loader_video);
+
         // Ads code
+        /*
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+        */
 
         //Navigation
         DrawerLayout drawerLayout = findViewById(R.id.drawer);
@@ -95,6 +99,8 @@ public class VideorecyclerActivity extends AppCompatActivity implements Navigati
         {
             case R.id.refresh:
                 videos.clear();
+                loader_video.setVisibility(View.VISIBLE);
+                adapter.notifyDataSetChanged();
                 loadRecyclerViewData();
                 return true;
             default:
@@ -123,6 +129,7 @@ public class VideorecyclerActivity extends AppCompatActivity implements Navigati
                         Videolist videodata = new Videolist(Snippet.getString("title"), VideoID.getString("videoId"), high.getString("url"));
                         videos.add(videodata);
                     }
+                    loader_video.setVisibility(View.GONE);
                     adapter = new videolistAdapter(videos, getApplicationContext());
                     recyclerView.setAdapter(adapter);
 
