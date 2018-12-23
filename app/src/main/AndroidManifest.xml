@@ -35,6 +35,8 @@
             android:name=".player"
             android:screenOrientation="sensorLandscape" />
         <activity android:name=".aboutme"/>
+        <activity android:name=".stutiActivity"
+            android:theme="@style/TabbedActivity" />
 
     </application>
 

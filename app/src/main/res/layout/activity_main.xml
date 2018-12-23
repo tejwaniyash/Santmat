@@ -8,14 +8,31 @@
 
     <FrameLayout
         android:layout_width="match_parent"
+        android:background="@drawable/gradient"
         android:layout_height="match_parent">
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:layout_width="match_parent"
+            android:background="@drawable/gradient"
+            android:layout_height="match_parent"
+            android:id="@+id/shimmer_view_container">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <include layout="@layout/layout_placeholder"/>
+                <include layout="@layout/layout_placeholder"/>
+                <include layout="@layout/layout_placeholder"/>
+                <include layout="@layout/layout_placeholder"/>
+            </LinearLayout>
+
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
 
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:ads="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/gradient"
             tools:context=".MainActivity">
 
             <android.support.v7.widget.RecyclerView
@@ -38,11 +55,11 @@
 
         </RelativeLayout>
 
-        <ProgressBar
+        <!--<ProgressBar
             android:id="@+id/loader"
             android:layout_width="50sp"
             android:layout_height="50sp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"/>-->
 
     </FrameLayout>
 

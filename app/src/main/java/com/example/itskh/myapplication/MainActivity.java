@@ -23,6 +23,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.facebook.shimmer.ShimmerFrameLayout;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private static final String playlistUrl = "https://www.googleapis.com/youtube/v3/playlists?part=snippet&channelId=UCEfqzmMwibbzRK879P9kEPw&key=AIzaSyDEYPFMLPlAhKf3Fw8hPtLE4jcZFgGYXCY&maxResults=50";
     private ArrayList<playlistData> Ytdata;
     private ActionBarDrawerToggle toggle;
-    private ProgressBar loader;
+    private ShimmerFrameLayout shimmerFrameLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
         //Loader section
-        loader = findViewById(R.id.loader);
+        shimmerFrameLayout = findViewById(R.id.shimmer_view_container);
 
         //Ad Section
         /*
@@ -72,6 +74,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        shimmerFrameLayout.startShimmer();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        shimmerFrameLayout.stopShimmer();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.actions, menu);
         ConnectivityManager cm = (ConnectivityManager)getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -89,7 +103,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         switch (item.getItemId()) {
             case R.id.refresh: {
-                loader.setVisibility(View.VISIBLE);
+                //loader.setVisibility(View.VISIBLE);
+                shimmerFrameLayout.setVisibility(View.VISIBLE);
                 Ytdata.clear();
                 adapter.notifyDataSetChanged();
                 loadRecyclerViewData();
@@ -132,7 +147,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         playlistData youtube = new playlistData(Snippet.getString("title"), Snippet.getString("description"), high.getString("url"), playlistitesm.getString("id"));
                         Ytdata.add(youtube);
                     }
-                    loader.setVisibility(View.GONE);
+                    //loader.setVisibility(View.GONE);
+                    shimmerFrameLayout.setVisibility(View.GONE);
                     adapter = new playlistDataAdapter(Ytdata, getApplicationContext());
                     recyclerView.setAdapter(adapter);
                 } catch (JSONException e) {

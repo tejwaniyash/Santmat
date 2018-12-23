@@ -27,6 +27,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 
 import org.json.JSONArray;
@@ -44,7 +45,7 @@ public class VideorecyclerActivity extends AppCompatActivity implements Navigati
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private ActionBarDrawerToggle toggle;
-    private ProgressBar loader_video;
+    private ShimmerFrameLayout shimmerFrameLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,7 +54,7 @@ public class VideorecyclerActivity extends AppCompatActivity implements Navigati
         Log.d(TAG, "Video List:");
 
 
-        loader_video=findViewById(R.id.loader_video);
+        shimmerFrameLayout=findViewById(R.id.shimmer_view_container);
 
         // Ads code
         /*
@@ -88,6 +89,17 @@ public class VideorecyclerActivity extends AppCompatActivity implements Navigati
 
     }
     @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        shimmerFrameLayout.startShimmer();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        shimmerFrameLayout.stopShimmer();
+    }
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.actions, menu);
         ConnectivityManager cm = (ConnectivityManager)getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -108,7 +120,8 @@ public class VideorecyclerActivity extends AppCompatActivity implements Navigati
         {
             case R.id.refresh:
                 videos.clear();
-                loader_video.setVisibility(View.VISIBLE);
+                shimmerFrameLayout.setVisibility(View.VISIBLE);
+                //loader_video.setVisibility(View.VISIBLE);
                 adapter.notifyDataSetChanged();
                 loadRecyclerViewData();
                 return true;
@@ -138,7 +151,8 @@ public class VideorecyclerActivity extends AppCompatActivity implements Navigati
                         Videolist videodata = new Videolist(Snippet.getString("title"), VideoID.getString("videoId"), high.getString("url"));
                         videos.add(videodata);
                     }
-                    loader_video.setVisibility(View.GONE);
+                    //loader_video.setVisibility(View.GONE);
+                    shimmerFrameLayout.setVisibility(View.GONE);
                     adapter = new videolistAdapter(videos, getApplicationContext());
                     recyclerView.setAdapter(adapter);
 

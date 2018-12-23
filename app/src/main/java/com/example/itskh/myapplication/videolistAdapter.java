@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,13 +71,13 @@ public class videolistAdapter extends RecyclerView.Adapter<videolistAdapter.vide
     public class videolistAdapterViewHolder extends RecyclerView.ViewHolder {
         private ImageView videothumb;
         private TextView VideoName;
-        private RelativeLayout videolayout;
+        private ConstraintLayout videolayout;
 
         public videolistAdapterViewHolder(View itemView) {
             super(itemView);
             videothumb = (ImageView) itemView.findViewById(R.id.VideoThumb);
             VideoName = (TextView) itemView.findViewById(R.id.VideoName);
-            videolayout = (RelativeLayout) itemView.findViewById(R.id.VideoListRelativeLayout);
+            videolayout = (ConstraintLayout) itemView.findViewById(R.id.VideoListRelativeLayout);
         }
     }
 
