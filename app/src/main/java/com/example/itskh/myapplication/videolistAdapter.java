@@ -2,6 +2,8 @@ package com.example.itskh.myapplication;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,10 +12,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class videolistAdapter extends RecyclerView.Adapter<videolistAdapter.videolistAdapterViewHolder> {
@@ -46,10 +48,16 @@ public class videolistAdapter extends RecyclerView.Adapter<videolistAdapter.vide
         holder.videolayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,player.class);
-                intent.putExtra("Video_Id",videolist.getVideoID());
-                intent.addFlags(intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
+                ConnectivityManager cm = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+                if(activeNetwork!=null) {
+                    Intent intent = new Intent(context, player.class);
+                    intent.putExtra("Video_Id", videolist.getVideoID());
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
+                }
+                else
+                    Toast.makeText(context,"Please Check your Internet Connectivity",Toast.LENGTH_SHORT).show();
             }
         });
     }

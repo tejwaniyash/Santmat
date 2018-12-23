@@ -1,6 +1,9 @@
 package com.example.itskh.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -32,6 +35,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class VideorecyclerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private static final String TAG = "VideorecyclerActivity";
@@ -63,7 +67,7 @@ public class VideorecyclerActivity extends AppCompatActivity implements Navigati
         toggle = new ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         NavigationView navigationView = findViewById(R.id.navigation);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -85,8 +89,13 @@ public class VideorecyclerActivity extends AppCompatActivity implements Navigati
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.actions,menu);
-        return true;
+        getMenuInflater().inflate(R.menu.actions, menu);
+        ConnectivityManager cm = (ConnectivityManager)getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        if(activeNetwork!=null)
+            return true;
+        else
+            return false;
     }
 
     @Override
@@ -105,7 +114,7 @@ public class VideorecyclerActivity extends AppCompatActivity implements Navigati
                 return true;
             default:
                 Toast.makeText(getApplicationContext(), "Something is Broken Try Again", Toast.LENGTH_LONG).show();
-                return true;
+                return super.onOptionsItemSelected(item);
         }
 
 
