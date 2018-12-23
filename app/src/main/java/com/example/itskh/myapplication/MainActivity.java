@@ -104,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(intent);
             //Toast.makeText(getApplicationContext(), "about", Toast.LENGTH_SHORT).show();
         }
+
         return false;
     }
 

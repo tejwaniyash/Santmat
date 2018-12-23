@@ -7,7 +7,7 @@
             android:title="@string/home">
 
         </item>
-        <!--<item
+        <item
             android:id="@+id/events"
             android:icon="@drawable/baseline_event_black_36"
             android:title="@string/Events">
@@ -17,7 +17,7 @@
             android:title="@string/stuti"
             android:icon="@drawable/temple"
             android:id="@+id/stuti">
-        </item>-->
+        </item>
     </group>
     <group android:checkableBehavior="single">
         <item

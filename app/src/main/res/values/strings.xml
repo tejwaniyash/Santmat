@@ -15,10 +15,8 @@
 
     <!--Testing Ad ID-->
     <string name="banner_ad_unit_idre">ca-app-pub-3940256099942544/6300978111</string>
-
-
     <string name="designed">Designed and Developed By Khagendra Kumar</string>
-    <string name="ver">Version 2.10</string>
+    <string name="ver">Version 2.0.4</string>
     <string name="copyright">All Rights Reserved</string>
 
     <!-- TODO: Remove or change this placeholder text -->
