@@ -45,8 +45,23 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/developed"
                 android:layout_below="@id/version"
                 android:text="@string/designed" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/developed"
+                android:text="@string/Email"
+                android:id="@+id/email"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/developed"
+                android:layout_toRightOf="@id/email"
+                android:autoLink="email"
+                android:text="@string/Email_id"/>
         </RelativeLayout>
 
         <TextView

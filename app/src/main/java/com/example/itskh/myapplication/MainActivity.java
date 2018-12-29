@@ -123,10 +123,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(intent);
             //Toast.makeText(getApplicationContext(), "Home", Toast.LENGTH_SHORT).show();
         }
-        if (item.getItemId() == R.id.about) {
+        else if (item.getItemId() == R.id.about) {
             Intent intent = new Intent(this, aboutme.class);
             startActivity(intent);
             //Toast.makeText(getApplicationContext(), "about", Toast.LENGTH_SHORT).show();
+        }
+        else if (item.getItemId() == R.id.stuti)
+        {
+            Intent intent = new Intent(this,stutiActivity.class);
+            startActivity(intent);
         }
 
         return false;

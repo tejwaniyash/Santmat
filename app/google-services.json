@@ -8,50 +8,6 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:284948213790:android:67bb625407ba2dac",
-        "android_client_info": {
-          "package_name": "com.example.itskh.myapplication"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "284948213790-jl60ericpjf2njmh8qbt06s326490k2b.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.itskh.myapplication",
-            "certificate_hash": "d5749b5db7f420271b24867f2e1e9fdd2683a5b9"
-          }
-        },
-        {
-          "client_id": "284948213790-i101akcn8ol00fn9b0iih8h38sfh8b3c.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDQYubaGjyWpQDrzxoXKX8oqyY6M5xHeiM"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "284948213790-i101akcn8ol00fn9b0iih8h38sfh8b3c.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:284948213790:android:99260bd4ef16a054",
         "android_client_info": {
           "package_name": "com.myhackerworld.itskh.santmat"
@@ -67,13 +23,21 @@
           }
         },
         {
+          "client_id": "284948213790-pv4qmms97if01embqu3kk40eud2vf2u8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.myhackerworld.itskh.santmat",
+            "certificate_hash": "7cf24cdb4fd8327617ddacf997670c7a67fc666c"
+          }
+        },
+        {
           "client_id": "284948213790-i101akcn8ol00fn9b0iih8h38sfh8b3c.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDQYubaGjyWpQDrzxoXKX8oqyY6M5xHeiM"
+          "current_key": "AIzaSyAqR6i4J_K1BNf8PNSnpTeLNb0p343LVns"
         }
       ],
       "services": {
@@ -84,7 +48,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "284948213790-i101akcn8ol00fn9b0iih8h38sfh8b3c.apps.googleusercontent.com",
+              "client_id": "284948213790-3ljt9u12kavjb74vro72a4bka1buqm15.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
@@ -92,7 +56,8 @@
         "ads_service": {
           "status": 2
         }
-      }
+      },
+      "admob_app_id": "ca-app-pub-2406081447963977~4589747823"
     }
   ],
   "configuration_version": "1"

@@ -12,5 +12,6 @@
         <item name="android:windowBackground">@drawable/splash</item>
     </style>
     <style name="TabbedActivity" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:textColor">#a9aaab</item>
     </style>
 </resources>

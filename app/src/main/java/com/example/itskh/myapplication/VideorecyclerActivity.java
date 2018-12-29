@@ -178,11 +178,17 @@ public class VideorecyclerActivity extends AppCompatActivity implements Navigati
             Intent intent = new Intent(this,MainActivity.class);
             startActivity(intent);
         }
-        if(item.getItemId()==R.id.about)
+        else if(item.getItemId()==R.id.about)
         {
             Intent intent = new Intent(this,aboutme.class);
             startActivity(intent);
         }
+        else if (item.getItemId() == R.id.stuti)
+        {
+            Intent intent = new Intent(this,stutiActivity.class);
+            startActivity(intent);
+        }
+
         return false;
     }
 }

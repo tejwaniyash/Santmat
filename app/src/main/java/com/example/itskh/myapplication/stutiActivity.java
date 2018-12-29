@@ -40,9 +40,9 @@ public class stutiActivity extends AppCompatActivity  implements NavigationView.
         mstutiActivityAdapter = new stutiActivityAdapter(getSupportFragmentManager());
         mviewpager.setAdapter(mstutiActivityAdapter);
         tabLayout=findViewById(R.id.stutiTab);
+        tabLayout.setTabGravity(tabLayout.GRAVITY_FILL);
         tabLayout.setupWithViewPager(mviewpager);
 
-        Log.i("Stuti","Ye To Hona hi tha");
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

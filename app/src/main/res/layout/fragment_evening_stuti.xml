@@ -5,9 +5,80 @@
     tools:context="com.example.itskh.myapplication.stutiFragment.eveningStuti">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="5dp"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:id="@+id/EveSection1"
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:textSize="20sp"
+                android:text="@string/eve_s1"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:id="@+id/evepara1"
+                android:layout_below="@id/EveSection1"
+                android:text="@string/ev_p1"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:id="@+id/EveSection2"
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:textSize="20sp"
+                android:layout_below="@id/evepara1"
+                android:text="@string/eve_s1"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:id="@+id/evepara2"
+                android:layout_below="@id/EveSection2"
+                android:text="@string/eve_s2_p1"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:textSize="20sp"
+                android:id="@+id/Section8"
+                android:text="@string/aarti"
+                android:layout_below="@id/evepara2"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:gravity="center"
+                android:layout_below="@id/Section8"
+                android:id="@+id/ap1"
+                android:text="@string/a_p1"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:gravity="center"
+                android:layout_below="@id/ap1"
+                android:id="@+id/ap2"
+                android:text="@string/a_p2"
+                />
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </FrameLayout>

@@ -11,6 +11,8 @@
     <string name="close">Close</string>
     <string name="About_me">About Me</string>
     <string name="stuti">Stuti</string>
+    <string name="Email">Email: </string>
+    <string name="Email_id"> santmatchannel@gmail.com</string>
     <string name="banner_ad_unit_id">ca-app-pub-2406081447963977/8904413265</string>
 
     <!--Testing Ad ID-->
